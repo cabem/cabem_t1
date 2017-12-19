@@ -34,8 +34,12 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		MysqlDataSource dataSource = MysqlDataSourceConn.getDataSource();
+		
     	String Response = "";
     	try {
+    		
+    		//Another method of connecting to the database using the ConnectionConn class.
+    		//Connection conn = ConnectionConn.getConnection(); 
     		Connection conn = dataSource.getConnection();
         	Statement stmt = conn.createStatement();
         	ResultSet rs = stmt.executeQuery("SELECT * FROM users");
